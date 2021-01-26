@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<!-- Tieu Long Lanh Kute -->
+
+<head>
+    <title>Blog Detail</title>
+    <!--[if lt IE 9]>
+	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+    <!--[if lt IE 9]>
+	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+<![endif]-->
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <meta name="viewport" content="width=device-width">
+
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link href="css/bs.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="css/main-slider.css" />
+    <!--[if lte IE 10]><link rel="stylesheet" type="text/css" href="css/customIE.css" /><![endif]-->
+    <link href="css/font-awesome.css" rel="stylesheet" type="text/css" />
+    <link href="css/font-awesome-ie7.css" rel="stylesheet" type="text/css" />
+    <noscript>
+<link rel="stylesheet" type="text/css" href="css/noJS.css"/>
+</noscript>
+
+</head>
+
+<link href="css/switcher.css" rel="stylesheet" type="text/css" />
+
+<link rel="stylesheet" name="skins" href="css/default.css" type="text/css" media="all">
+
+
+<body>
+
+    <div class="wrapper">
+
+
+        <%- include('../partials/header.ejs'); %>
+
+
+
+        <section id="content-holder" class="container-fluid container">
+            <section class="row-fluid">
+                <div class="heading-bar">
+                    <h2>News</h2>
+                    <span class="h-line"></span>
+                </div>
+
+                <section class="span9 first">
+
+                    <div class="blog-sec-slider">
+                        <div class="slider5">
+                            <div class="slide">
+                                <a href="#"><img src="images/image22.jpg" alt="" /></a>
+                            </div>
+                            <div class="slide">
+                                <a href="#"><img src="images/image36.jpg" alt="" /></a>
+                            </div>
+                            <div class="slide">
+                                <a href="#"><img src="images/image22.jpg" alt="" /></a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <article class="b-post blog-detail">
+                        <h3>Demo post title</h3>
+                        <div class="b-post-img">
+                            <img src="images/image37.jpg" alt="Blog Post" />
+                        </div>
+                        <div class="b-post-bottom">
+                            <ul class="post-nav">
+                                <li>Posted by <a href="#">Admin </a></li>
+                                <li>on May 07, 2013</li>
+                                <li><a href="#">2 Comments</a></li>
+                            </ul>
+                            <a href="#" class="more-btn">Read More</a>
+                        </div>
+                        <p> Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
+                            electronic typesetting,essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and recently with desktop publishing software like Aldus PageMaker including
+                            versions of Lorem Ipsum. It was popularised in the release of Letraset sheets containing.</p>
+                        <div class="blog-quote">
+                            <p> <i class="icon-quote-left"></i> <em>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer
+took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,
+but also the leap into electronic typesetting, remaining essentially unchanged.</em></p>
+                        </div>
+                        <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
+                            electronic typesetting,essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and recently with desktop publishing software like Aldus PageMaker including
+                            versions of Lorem Ipsum. It was popularised in the release of Letraset sheets containing.</p>
+                    </article>
+
+                    <h4>Leave a review</h4>
+                    <form class="form-horizontal">
+                        <div class="control-group">
+                            <label class="control-label" for="inputEmail">Name <sup>*</sup></label>
+                            <div class="controls">
+                                <input type="text" id="inputEmail" placeholder="">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="inputPassword">Email <sup>*</sup></label>
+                            <div class="controls">
+                                <input type="text" id="inputPassword" placeholder="">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="inputPassword">Review <sup>*</sup></label>
+                            <div class="controls">
+                                <textarea name="" cols="2" rows="20"></textarea>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="controls">
+                                <button type="submit" class="btn">POST Comment</button>
+                            </div>
+                        </div>
+                    </form>
+
+
+                </section>
+
+
+                <%- include('../partials/sidebar.ejs'); %>
+
+
+            </section>
+        </section>
+
+
+        <%- include('../partials/social.ejs'); %>
+        <%- include('../partials/footer.ejs'); %>
+
+
+    </div>
+
+
+    <script type="text/javascript" src="js/lib.js"></script>
+    <script type="text/javascript" src="js/modernizr.js"></script>
+    <script type="text/javascript" src="js/easing.js"></script>
+    <script type="text/javascript" src="js/bs.js"></script>
+    <script type="text/javascript" src="js/bxslider.js"></script>
+    <script type="text/javascript" src="js/input-clear.js"></script>
+    <script src="js/range-slider.js"></script>
+    <script src="js/jquery.zoom.js"></script>
+    <script type="text/javascript" src="js/bookblock.js"></script>
+    <script type="text/javascript" src="js/custom.js"></script>
+    <script type="text/javascript" src="js/social.js"></script>
+
+    <noscript>
+<style>#socialicons>a span{top:0px;left:-100%;-webkit-transition:all 0.3s ease;-moz-transition:all 0.3s ease-in-out;-o-transition:all 0.3s ease-in-out;-ms-transition:all 0.3s ease-in-out;transition:all 0.3s ease-in-out;}#socialicons>ahover div{left:0px;}</style>
+</noscript>
+    <script type="text/javascript">
+        /* <![CDATA[ */
+        $(document).ready(function() {
+                $('.social_active').hoverdir({});
+            })
+            /* ]]> */
+    </script>
+    <div class="switcher"></div>
+
+    <script type="text/javascript" src="js/cookie.js"></script>
+    <script type="text/javascript" src="js/colorswitcher.js"></script>
+
+</body>
+
+<!-- Tieu Long Lanh Kute -->
+
+</html>

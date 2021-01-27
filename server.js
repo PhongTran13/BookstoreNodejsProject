@@ -9,7 +9,7 @@ app.use(fileUpload());
 const path = require('path');
 var mysql = require('mysql');
 const { title } = require('process');
-var a = 1;
+// 123
 //session
 // app.use(cookieSession({
 //     name: 'session',
@@ -67,9 +67,16 @@ app.get('/order-recieved', (req, res) => {
 app.get('/contact', (req, res) => {
     res.render('contact');
 })
-
-// //router
+app.get('/grid-view', (req, res) => {
+    res.render('grid-view');
+})
+app.get('/list-view', (req, res) => {
+    res.render('list-view');
+})
+app.get('/shortcodes', (req, res) => {
+        res.render('shortcodes');
+    })
+    //router
 app.listen(port, () => {
-    console.log(`ung dung nodejs dang chay voi port ${port}`);
-
+    console.log(`Hello!!! Server đang chạy port: ${port} ngon lành :)`);
 });

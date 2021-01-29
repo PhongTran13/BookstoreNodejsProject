@@ -418,6 +418,10 @@ a img:hover {
     color: #000;
 }
 
+.cart-price {
+    text-decoration: line-through;
+}
+
 .sale-icon {
     background: url(../images/sale-icon.png) no-repeat;
     width: 78px;

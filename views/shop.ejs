@@ -58,7 +58,7 @@
                                     <a href="#"><img src="images/banner5.png" alt="" /></a>
                                 </div>
                                 <div class="slide">
-                                    <a href="#"><img src="images/banner1.jpg" alt="" /></a>
+                                    <a href="#"><img src="images/banner7.jpg" alt="" /></a>
                                 </div>
                                 <div class="slide">
                                     <a href="#"><img src="images/banner6.jpg" alt="" /></a>
@@ -98,98 +98,102 @@
                                 <ul class="product_view">
                                     <li>View as:</li>
                                     <li>
-                                        <a class="grid-view" href="grid-view.html">Grid View</a>
+                                        <a class="grid-view" href="/grid-view">Grid View</a>
                                     </li>
                                     <li>
-                                        <a class="list-view" href="list-view.html">List View</a>
+                                        <a class="list-view" href="/list-view">List View</a>
                                     </li>
                                 </ul>
                             </div>
                         </div>
                         <section class="grid-holder features-books">
-                            <figure class="span4 slide">
-                                <a href="/book-detail"><img src="images/image25.jpg" alt="" class="pro-img" /></a>
-                                <span class="title"><a href="/book-detail">A Walk Across The Sun</a></span>
-                                <span class="rating-bar"><img src="images/rating-star.png" alt="Rating Star"/></span>
-                                <div class="cart-price">
-                                    <a class="cart-btn2" href="cart.html">Add to Cart</a>
-                                    <span class="price">$129.90</span>
-                                </div>
-                            </figure>
-                            <figure class="span4 slide">
-                                <a href="/book-detail"><img src="images/image38.jpg" alt="" class="pro-img" /></a>
-                                <span class="title"><a href="/book-detail">A Walk Across The Sun</a></span>
-                                <span class="rating-bar"><img src="images/rating-star.png" alt="Rating Star"/></span>
-                                <div class="cart-price">
-                                    <a class="cart-btn2" href="cart.html">Add to Cart</a>
-                                    <span class="price">$129.90</span>
-                                </div>
-                            </figure>
-                            <figure class="span4 slide">
-                                <a href="/book-detail"><img src="images/image39.jpg" alt="" class="pro-img" /></a>
-                                <span class="title"><a href="/book-detail">A Walk Across The Sun</a></span>
-                                <span class="rating-bar"><img src="images/rating-star.png" alt="Rating Star"/></span>
-                                <div class="cart-price">
-                                    <a class="cart-btn2" href="cart.html">Add to Cart</a>
-                                    <span class="price">$129.90</span>
-                                </div>
-                            </figure>
-                            <hr/>
-                            <figure class="span4 slide first">
-                                <a href="/book-detail"><img src="images/image40.jpg" alt="" class="pro-img" /></a>
-                                <span class="title"><a href="/book-detail">A Walk Across The Sun</a></span>
-                                <span class="rating-bar"><img src="images/rating-star.png" alt="Rating Star"/></span>
-                                <div class="cart-price">
-                                    <a class="cart-btn2" href="cart.html">Add to Cart</a>
-                                    <span class="price">$129.90</span>
-                                </div>
-                            </figure>
-                            <figure class="span4 slide">
-                                <a href="/book-detail"><img src="images/image41.jpg" alt="" class="pro-img" /></a>
-                                <span class="title"><a href="/book-detail">A Walk Across The Sun</a></span>
-                                <span class="rating-bar"><img src="images/rating-star.png" alt="Rating Star"/></span>
-                                <div class="cart-price">
-                                    <a class="cart-btn2" href="about-us.html">Add to Cart</a>
-                                    <span class="price">$129.90</span>
-                                </div>
-                            </figure>
-                            <figure class="span4 slide">
-                                <a href="/book-detail"><img src="images/image25.jpg" alt="" class="pro-img" /></a>
-                                <span class="title"><a href="/book-detail">A Walk Across The Sun</a></span>
-                                <span class="rating-bar"><img src="images/rating-star.png" alt="Rating Star"/></span>
-                                <div class="cart-price">
-                                    <a class="cart-btn2" href="cart.html">Add to Cart</a>
-                                    <span class="price">$129.90</span>
-                                </div>
-                            </figure>
-                            <hr/>
-                            <figure class="span4 slide first">
-                                <a href="/book-detail"><img src="images/image39.jpg" alt="" class="pro-img" /></a>
-                                <span class="title"><a href="/book-detail">A Walk Across The Sun</a></span>
-                                <span class="rating-bar"><img src="images/rating-star.png" alt="Rating Star"/></span>
-                                <div class="cart-price">
-                                    <a class="cart-btn2" href="cart.html">Add to Cart</a>
-                                    <span class="price">$129.90</span>
-                                </div>
-                            </figure>
-                            <figure class="span4 slide">
-                                <a href="/book-detail"><img src="images/image42.jpg" alt="" class="pro-img" /></a>
-                                <span class="title"><a href="/book-detail">A Walk Across The Sun</a></span>
-                                <span class="rating-bar"><img src="images/rating-star.png" alt="Rating Star"/></span>
-                                <div class="cart-price">
-                                    <a class="cart-btn2" href="cart.html">Add to Cart</a>
-                                    <span class="price">$129.90</span>
-                                </div>
-                            </figure>
-                            <figure class="span4 slide">
-                                <a href="/book-detail"><img src="images/image38.jpg" alt="" class="pro-img" /></a>
-                                <span class="title"><a href="/book-detail">A Walk Across The Sun</a></span>
-                                <span class="rating-bar"><img src="images/rating-star.png" alt="Rating Star"/></span>
-                                <div class="cart-price">
-                                    <a class="cart-btn2" href="cart.html">Add to Cart</a>
-                                    <span class="price">$129.90</span>
-                                </div>
-                            </figure>
+
+                            <% for (let product of products) { %>
+                                <figure class="span4 slide">
+                                    <a href="/book-detail"><img src="images/<%= product.images %>" alt="" class="pro-img" /></a>
+                                    <span class="title"><a href="/book-detail"><%= product.nameProduct %></a></span>
+                                    <span class="rating-bar"><img src="images/rating-star.png" alt="Rating Star"/></span>
+                                    <div class="cart-price">
+                                        <a class="cart-btn2" href="/cart">Add to Cart</a>
+                                        <span class="price"><%= product.price %></span>
+                                        <span><%= product.cost %></span>
+                                    </div>
+                                </figure>
+                                <% } %>
+                                    <!-- <figure class="span4 slide">
+                                        <a href="/book-detail"><img src="images/s2.jpg" alt="" class="pro-img" /></a>
+                                        <span class="title"><a href="/book-detail">A Walk Across The Sun</a></span>
+                                        <span class="rating-bar"><img src="images/rating-star.png" alt="Rating Star"/></span>
+                                        <div class="cart-price">
+                                            <a class="cart-btn2" href="/cart">Add to Cart</a>
+                                            <span class="price">$129.90</span>
+                                        </div>
+                                    </figure>
+                                    <figure class="span4 slide">
+                                        <a href="/book-detail"><img src="images/s3.jpg" alt="" class="pro-img" /></a>
+                                        <span class="title"><a href="/book-detail">A Walk Across The Sun</a></span>
+                                        <span class="rating-bar"><img src="images/rating-star.png" alt="Rating Star"/></span>
+                                        <div class="cart-price">
+                                            <a class="cart-btn2" href="/cart">Add to Cart</a>
+                                            <span class="price">$129.90</span>
+                                        </div>
+                                    </figure>
+                                    <hr/>
+                                    <figure class="span4 slide first">
+                                        <a href="/book-detail"><img src="images/s4.jpg" alt="" class="pro-img" /></a>
+                                        <span class="title"><a href="/book-detail">A Walk Across The Sun</a></span>
+                                        <span class="rating-bar"><img src="images/rating-star.png" alt="Rating Star"/></span>
+                                        <div class="cart-price">
+                                            <a class="cart-btn2" href="/cart">Add to Cart</a>
+                                            <span class="price">$129.90</span>
+                                        </div>
+                                    </figure>
+                                    <figure class="span4 slide">
+                                        <a href="/book-detail"><img src="images/s5.jpg" alt="" class="pro-img" /></a>
+                                        <span class="title"><a href="/book-detail">A Walk Across The Sun</a></span>
+                                        <span class="rating-bar"><img src="images/rating-star.png" alt="Rating Star"/></span>
+                                        <div class="cart-price">
+                                            <a class="cart-btn2" href="about-us.html">Add to Cart</a>
+                                            <span class="price">$129.90</span>
+                                        </div>
+                                    </figure>
+                                    <figure class="span4 slide">
+                                        <a href="/book-detail"><img src="images/s6.jpg" alt="" class="pro-img" /></a>
+                                        <span class="title"><a href="/book-detail">A Walk Across The Sun</a></span>
+                                        <span class="rating-bar"><img src="images/rating-star.png" alt="Rating Star"/></span>
+                                        <div class="cart-price">
+                                            <a class="cart-btn2" href="/cart">Add to Cart</a>
+                                            <span class="price">$129.90</span>
+                                        </div>
+                                    </figure>
+                                    <hr/>
+                                    <figure class="span4 slide first">
+                                        <a href="/book-detail"><img src="images/s7.jpg" alt="" class="pro-img" /></a>
+                                        <span class="title"><a href="/book-detail">A Walk Across The Sun</a></span>
+                                        <span class="rating-bar"><img src="images/rating-star.png" alt="Rating Star"/></span>
+                                        <div class="cart-price">
+                                            <a class="cart-btn2" href="/cart">Add to Cart</a>
+                                            <span class="price">$129.90</span>
+                                        </div>
+                                    </figure>
+                                    <figure class="span4 slide">
+                                        <a href="/book-detail"><img src="images/s8.jpg" alt="" class="pro-img" /></a>
+                                        <span class="title"><a href="/book-detail">A Walk Across The Sun</a></span>
+                                        <span class="rating-bar"><img src="images/rating-star.png" alt="Rating Star"/></span>
+                                        <div class="cart-price">
+                                            <a class="cart-btn2" href="/cart">Add to Cart</a>
+                                            <span class="price">$129.90</span>
+                                        </div>
+                                    </figure>
+                                    <figure class="span4 slide">
+                                        <a href="/book-detail"><img src="images/s9.jpg" alt="" class="pro-img" /></a>
+                                        <span class="title"><a href="/book-detail">A Walk Across The Sun</a></span>
+                                        <span class="rating-bar"><img src="images/rating-star.png" alt="Rating Star"/></span>
+                                        <div class="cart-price">
+                                            <a class="cart-btn2" href="/cart">Add to Cart</a>
+                                            <span class="price">$129.90</span>
+                                        </div>
+                                    </figure> -->
                         </section>
                         <div class="blog-footer">
                             <div class="pagination">
@@ -206,8 +210,8 @@
                             </div>
                             <ul class="product_view">
                                 <li>View as:</li>
-                                <li><a class="grid-view" href="cart.html">Grid View</a></li>
-                                <li><a class="list-view" href="list-view.html">List View</a></li>
+                                <li><a class="grid-view" href="/cart">Grid View</a></li>
+                                <li><a class="list-view" href="/list-view">List View</a></li>
                             </ul>
                         </div>
 

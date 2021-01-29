@@ -9,23 +9,22 @@ app.use(fileUpload());
 const path = require('path');
 var mysql = require('mysql');
 const { title } = require('process');
-// 123
 //session
-// app.use(cookieSession({
-//     name: 'session',
-//     keys: ['fpoly1', 'fpoly2'],
-//     maxAge: 3600*1000
-// }));
-// //create connection
-// const db = mysql.createConnection({
-//     host: 'localhost',
-//     user:'root',
-//     password:'',
-//     database:'bookstore',
-//     multipleStatements: true,
-//     port: '3306'
-// });
-//app.use(bodyParser.urlencoded());
+app.use(cookieSession({
+    name: 'session',
+    keys: ['fpoly1', 'fpoly2'],
+    maxAge: 3600 * 1000
+}));
+//create connection
+const db = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'bookstore',
+    multipleStatements: true,
+    port: '3306'
+});
+app.use(bodyParser.urlencoded({ extended: true }));
 //khai bao su dung template ejs
 app.set("view engine", "ejs");
 app.set("views", "./views");
@@ -37,15 +36,16 @@ app.use(expressLayouts);
 // app.use('/', routeSite);
 // //app.use('/',routeAdmin);
 
-app.get('', (req, res) => {
+//router
+app.get('/', (req, res) => {
     res.render('index');
 })
 app.get('/about', (req, res) => {
-    res.render('about');
-})
-app.get('/shop', (req, res) => {
-    res.render('shop');
-})
+        res.render('about');
+    })
+    // app.get('/shop', (req, res) => {
+    //     res.render('shop');
+    // })
 app.get('/blog', (req, res) => {
     res.render('blog');
 })
@@ -74,9 +74,15 @@ app.get('/list-view', (req, res) => {
     res.render('list-view');
 })
 app.get('/shortcodes', (req, res) => {
-        res.render('shortcodes');
-    })
-    //router
+    res.render('shortcodes');
+})
 app.listen(port, () => {
     console.log(`Hello!!! Server đang chạy port: ${port} ngon lành :)`);
+});
+app.get("/shop", (req, res) => {
+    let sql = 'SELECT* FROM products';
+    db.query(sql, function(err, data) {
+        // if (err) throw err;?
+        res.render('shop', { products: data });
+    })
 });

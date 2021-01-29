@@ -2,7 +2,7 @@ const User = require('../model/user');
 var bodyParser = require('body-parser');
 const bcrypt = require('bcryptjs');
 exports.login = (req, res) => {
-    res.render('login');
+    res.render('checkout');
 }
 
 exports.register = (req, res, next) => {

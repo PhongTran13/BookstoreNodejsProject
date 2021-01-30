@@ -30,22 +30,32 @@ app.set("view engine", "ejs");
 app.set("views", "./views");
 app.use(express.static("public"));
 app.use(expressLayouts);
- const routeSite = require('./route/site');
+const routeSite = require('./route/site');
 // //const routeAdmin = require('/route/admin');
 
- app.use('/', routeSite);
+app.use('/', routeSite);
 // //app.use('/',routeAdmin);
 
 //router
 app.get('/', (req, res) => {
-    res.render('index');
+    // res.render('index');
+    let sql = 'SELECT* FROM products';
+    db.query(sql, function(err, data) {
+        // if (err) throw err;?
+        res.render('index', { products: data });
+    })
 })
 app.get('/about', (req, res) => {
-        res.render('about');
+    res.render('about');
+})
+
+app.get("/shop", (req, res) => {
+    let sql = 'SELECT* FROM products limit 9';
+    db.query(sql, function(err, data) {
+        // if (err) throw err;?
+        res.render('shop', { products: data });
     })
-    // app.get('/shop', (req, res) => {
-    //     res.render('shop');
-    // })
+});
 app.get('/blog', (req, res) => {
     res.render('blog');
 })
@@ -68,21 +78,27 @@ app.get('/contact', (req, res) => {
     res.render('contact');
 })
 app.get('/grid-view', (req, res) => {
-    res.render('grid-view');
+    // res.render('grid-view');
+    let sql = 'SELECT* FROM products limit 9';
+    db.query(sql, function(err, data) {
+        // if (err) throw err;?
+        res.render('grid-view', { products: data });
+    })
 })
 app.get('/list-view', (req, res) => {
-    res.render('list-view');
+    // res.render('list-view');
+    let sql = 'SELECT* FROM products limit 5';
+    db.query(sql, function(err, data) {
+        // if (err) throw err;?
+        res.render('list-view', { products: data });
+    })
 })
 app.get('/shortcodes', (req, res) => {
     res.render('shortcodes');
 })
+app.get('/order - recieved', (req, res) => {
+    res.render('order - recieved');
+})
 app.listen(port, () => {
     console.log(`Hello!!! Server đang chạy port: ${port} ngon lành :)`);
-});
-app.get("/shop", (req, res) => {
-    let sql = 'SELECT* FROM products';
-    db.query(sql, function(err, data) {
-        // if (err) throw err;?
-        res.render('shop', { products: data });
-    })
 });

@@ -10,4 +10,5 @@ router.get('/views/shop', product.getAll)
 module.exports = router;
 router.get('/checkout', user.login)
 
-router.post('/register', user.register);
+router.post('/checkout', user.register);
+router.post('/checkout', user.login1);

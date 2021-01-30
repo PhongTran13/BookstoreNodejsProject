@@ -1,10 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
-<!-- Tieu Long Lanh Kute -->
-
 <head>
-    <title>Grid View</title>
+    <title>Shop</title>
     <%- include('../partials/head.ejs'); %>
         <style>
             .span4:nth-child(3n) {
@@ -20,11 +18,7 @@
 <body>
 
     <div class="wrapper">
-
-
         <%- include('../partials/header.ejs'); %>
-
-
             <section id="content-holder" class="container-fluid container">
                 <section class="row-fluid">
                     <div class="heading-bar">
@@ -54,24 +48,24 @@
                                 <div class="left">
                                     <span class="s-title">Sort by</span>
                                     <span class="list-nav">
-<select name="">
-<option>Position</option>
-<option>Position 2</option>
-<option>Position 3</option>
-<option>Position 4</option>
-</select>
-</span>
+                                        <select name="">
+                                        <option>All</option>
+                                        <option>latest product</option>
+                                        <option>prices range from low to high</option>
+                                        <option>prices range from high to low</option>
+                                        </select>
+                                    </span>
                                 </div>
                                 <div class="right">
                                     <span>Show</span>
                                     <span>
-<select name="">
-<option>1</option>
-<option>2</option>
-<option>3</option>
-<option>4</option>
-</select>
-</span>
+                                        <select name="">
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        </select>
+                                    </span>
                                     <span>per page</span>
                                 </div>
                             </div>
@@ -89,7 +83,6 @@
                             </div>
                         </div>
                         <section class="grid-holder features-books">
-
                             <% for (let product of products) { %>
                                 <figure class="span4 slide">
                                     <a href="/book-detail"><img src="images/<%= product.images %>" alt="" class="pro-img" /></a>
@@ -122,12 +115,8 @@
                                 <li><a class="list-view" href="/list-view">List View</a></li>
                             </ul>
                         </div>
-
                     </section>
-
                     <%- include('../partials/sidebar.ejs'); %>
-
                 </section>
             </section>
-
             <%- include('../partials/footer.ejs'); %>

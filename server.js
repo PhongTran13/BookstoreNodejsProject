@@ -63,7 +63,12 @@ app.get('/news', (req, res) => {
     res.render('news');
 })
 app.get('/book-detail', (req, res) => {
-    res.render('book-detail');
+    // res.render('book-detail');
+    let sql = 'SELECT* FROM products';
+    db.query(sql, function(err, data) {
+        // if (err) throw err;?
+        res.render('book-detail', { products: data });
+    })
 })
 app.get('/cart', (req, res) => {
     res.render('cart');

@@ -11,4 +11,4 @@ module.exports = router;
 router.get('/checkout', user.login)
 
 router.post('/checkout', user.register);
-router.post('/checkout', user.login1);
+router.post('/login', user.login1);

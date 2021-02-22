@@ -1975,8 +1975,8 @@ a img:hover {
     color: #000;
 }
 
-.product-detail input[type="text"] {
-    width: 30px;
+.product-detail input[type="number"] {
+    width: 50px;
     margin: 0 30px;
     text-align: center;
 }
@@ -1987,6 +1987,17 @@ a img:hover {
 
 .product-detail td {
     border-right: 1px solid #efefef;
+}
+
+.product-detail img {
+    width: 120px;
+}
+
+.product-price:before,
+.product-line-price::before,
+.gia::before {
+    content: '$';
+    font-weight: bold;
 }
 
 .cart-option-box {

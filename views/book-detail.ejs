@@ -4,6 +4,9 @@
 <head>
     <title>Book Detail</title>
     <%- include('../partials/head.ejs'); %>
+        <!-- star  -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
         <!-- comment -->
         <link rel='stylesheet prefetch' href='https://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css'>
 
@@ -141,6 +144,10 @@
                 width: 70%;
                 padding: 10px;
             }
+            
+            .checked {
+                color: #FD4;
+            }
         </style>
 </head>
 
@@ -256,7 +263,15 @@
                                                                         <div class="col-md-3">
                                                                             <h4 class="media-heading text-uppercase reviews">Marco </h4>
                                                                         </div>
-                                                                        <div class="col-md-9">Sao</div>
+                                                                        <div class="col-md-9">
+                                                                            <div class="stars">
+                                                                                <span class="fa fa-star checked"></span>
+                                                                                <span class="fa fa-star checked"></span>
+                                                                                <span class="fa fa-star checked"></span>
+                                                                                <span class="fa fa-star"></span>
+                                                                                <span class="fa fa-star"></span>
+                                                                            </div>
+                                                                        </div>
                                                                     </div>
                                                                     <em>22/09/2020</em>
                                                                     <p class="media-comment">
@@ -274,9 +289,20 @@
                                                             <div class="media-body">
                                                                 <div class="well well-lg">
                                                                     <div class="d-flex">
-                                                                        <h4 class="media-heading text-uppercase reviews">Marco </h4>
-                                                                        <em>22/09/2020</em>
+                                                                        <div class="col-md-3">
+                                                                            <h4 class="media-heading text-uppercase reviews">Marco </h4>
+                                                                        </div>
+                                                                        <div class="col-md-9">
+                                                                            <div class="stars">
+                                                                                <span class="fa fa-star checked"></span>
+                                                                                <span class="fa fa-star checked"></span>
+                                                                                <span class="fa fa-star checked"></span>
+                                                                                <span class="fa fa-star checked"></span>
+                                                                                <span class="fa fa-star"></span>
+                                                                            </div>
+                                                                        </div>
                                                                     </div>
+                                                                    <em>22/09/2020</em>
                                                                     <p class="media-comment">
                                                                         Great snippet! Thanks for sharing.
                                                                     </p>

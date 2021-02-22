@@ -20,27 +20,32 @@
                     <div class="cart-table-holder">
                         <table width="100%" border="0" cellpadding="10">
                             <tr>
-                                <th width="14%">&nbsp;</th>
+                                <th width="20%">&nbsp;</th>
                                 <th width="43%" align="left">Product Name</th>
-                                <th width="6%"></th>
                                 <th width="10%">Unit Price</th>
                                 <th width="10%">Quantity</th>
                                 <th width="12%">Subtota</th>
                                 <th width="5%">&nbsp;</th>
                             </tr>
-                            <tr bgcolor="#FFFFFF" class=" product-detail">
+                            <tr bgcolor="#FFFFFF" class="product-detail">
                                 <td valign="top"><img src="images/s2.jpg" /></td>
-                                <td valign="top">The Kite Runner by Khalid Hosseini</td>
-                                <td align="center" valign="top"><a href="#">Edit</a></td>
-                                <td align="center" valign="top">$295.00</td>
-                                <td align="center" valign="top"><input name="" type="text" value="1" /></td>
-                                <td align="center" valign="top">$295.00</td>
-                                <td align="center" valign="top">
-                                    <a href="#"> <i class="icon-trash"></i></a>
-                                </td>
+                                <td valign="top" style="line-height: 170px;">The Kite Runner by Khalid Hosseini</td>
+                                <td align="center" valign="top" class="product-price" style="line-height: 170px;">18.23</td>
+                                <td align="center" valign="top" class="product-quantity" style="line-height: 170px;"><input type="number" value="1" min="1"></td>
+                                <td align="center" valign="top" class="product-line-price" style="line-height: 170px;"><strong>18.23</strong></td>
+                                <td align="center" valign="top" style="line-height: 170px;"><a href="#"><i class="icon-trash"></i></a></td>
+                            </tr>
+                            <tr bgcolor="#FFFFFF" class="product-detail">
+                                <td valign="top"><img src="images/s2.jpg" /></td>
+                                <td valign="top" style="line-height: 170px;">The Kite Runner by Khalid Hosseini</td>
+                                <td align="center" valign="top" class="product-price" style="line-height: 170px;">18.23</td>
+                                <td align="center" valign="top" class="product-quantity" style="line-height: 170px;"><input type="number" value="1" min="1"></td>
+                                <td align="center" valign="top" class="product-line-price" style="line-height: 170px;"><strong>18.23</strong></td>
+                                <td align="center" valign="top" style="line-height: 170px;"><a href="#"><i class="icon-trash"></i></a></td>
                             </tr>
                         </table>
                     </div>
+
                     <figure class="span4 first">
                         <div class="cart-option-box">
                             <h4><i class="icon-shopping-cart"></i> ESTIMATE SHIPPING & TAX</h4>
@@ -417,13 +422,21 @@
                     <figure class="span4 price-total">
                         <div class="cart-option-box">
                             <table width="100%" border="0" cellpadding="10" class="total-payment">
-                                <tr>
-                                    <td width="55%" align="right"><strong>Subtotal</strong></td>
-                                    <td width="45%" align="left">$295.00</td>
+                                <tr style="font-size: 20px;">
+                                    <td width="55%" align="right"><strong>Subtotal:</strong></td>
+                                    <td width="45%" align="left" class="totals-value gia" id="cart-subtotal">36.46</td>
+                                </tr>
+                                <tr style="font-size: 20px;">
+                                    <td width="55%" align="right"><strong>Tax (5%):</strong></td>
+                                    <td width="45%" align="left" class="totals-value gia" id="cart-tax">3.60</td>
+                                </tr>
+                                <tr style="font-size: 20px;">
+                                    <td width="55%" align="right"><strong>Shipping:</strong></td>
+                                    <td width="45%" align="left" class="totals-value gia" id="cart-tax">15.00</td>
                                 </tr>
                                 <tr>
-                                    <td align="right"><strong class="large-f">GRAND TOTAL</strong></td>
-                                    <td align="left"><strong class="large-f">$295.00</strong></td>
+                                    <td align="right"><strong class="large-f">GRAND TOTAL:</strong></td>
+                                    <td align="left" class="totals-value"><strong class="large-f gia" id="cart-total">36.46</strong></td>
                                 </tr>
                             </table>
                             <hr />
@@ -434,4 +447,86 @@
                 </section>
             </section>
         </section>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" charset="utf-8"></script>
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+
+                /* Set rates + misc */
+                var taxRate = 0.05;
+                var shippingRate = 15.00;
+                var fadeTime = 300;
+
+
+                /* Assign actions */
+                $('.product-quantity input').change(function() {
+                    updateQuantity(this);
+                });
+
+                // $('.product-removal button').click(function() {
+                //     removeItem(this);
+                // });
+
+
+                /* Recalculate cart */
+                function recalculateCart() {
+                    var subtotal = 0;
+
+                    /* Sum up row totals */
+                    $('.product-detail').each(function() {
+                        subtotal += parseFloat($(this).children('.product-line-price').text());
+                    });
+
+                    /* Calculate totals */
+                    var tax = subtotal * taxRate;
+                    var shipping = (subtotal > 0 ? shippingRate : 0);
+                    var total = subtotal + tax + shipping;
+
+                    /* Update totals display */
+                    $('.totals-value').fadeOut(fadeTime, function() {
+                        $('#cart-subtotal').html(subtotal.toFixed(2));
+                        $('#cart-tax').html(tax.toFixed(2));
+                        $('#cart-shipping').html(shipping.toFixed(2));
+                        $('#cart-total').html(total.toFixed(2));
+                        if (total == 0) {
+                            $('.checkout').fadeOut(fadeTime);
+                        } else {
+                            $('.checkout').fadeIn(fadeTime);
+                        }
+                        $('.totals-value').fadeIn(fadeTime);
+                    });
+                }
+
+
+                /* Update quantity */
+                function updateQuantity(quantityInput) {
+                    /* Calculate line price */
+                    var productRow = $(quantityInput).parent().parent();
+                    var price = parseFloat(productRow.children('.product-price').text());
+                    var quantity = $(quantityInput).val();
+                    var linePrice = price * quantity;
+
+                    /* Update line price display and recalc cart totals */
+                    productRow.children('.product-line-price').each(function() {
+                        $(this).fadeOut(fadeTime, function() {
+                            $(this).text(linePrice.toFixed(2));
+                            recalculateCart();
+                            $(this).fadeIn(fadeTime);
+                        });
+                    });
+                }
+
+
+                /* Remove item from cart */
+                function removeItem(removeButton) {
+                    /* Remove row from DOM and recalc cart total */
+                    var productRow = $(removeButton).parent().parent();
+                    productRow.slideUp(fadeTime, function() {
+                        productRow.remove();
+                        recalculateCart();
+                    });
+                }
+
+            });
+        </script>
         <%- include('../partials/footer.ejs'); %>

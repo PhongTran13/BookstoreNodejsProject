@@ -2,13 +2,22 @@ const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
 var bodyParser = require('body-parser');
 const cookieSession = require('cookie-session');
+var cookieParser = require('cookie-parser');
+var expressSession = require('express-session');
+
 const app = express();
 const port = 3000;
 const fileUpload = require('express-fileupload');
 app.use(fileUpload());
 const path = require('path');
 var mysql = require('mysql');
+// var indexRouter = require('./routes/index');
+// var usersRouter = require('./routes/users');
 const { title } = require('process');
+// app.use('/', indexRouter);
+// app.use('/users', usersRouter);
+app.use(cookieParser()); 
+// app.use(expressSession({secret: 'D%$*&^lk32', resave: false,saveUninitialized: true}));  
 //session
 app.use(cookieSession({
     name: 'session',
@@ -20,7 +29,7 @@ const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '',
-    database: 'bookstore',
+    database: 'bookstore2',
     multipleStatements: true,
     port: '3306'
 });
@@ -78,6 +87,7 @@ app.get('/order-recieved', (req, res) => {
 app.get('/contact', (req, res) => {
     res.render('contact');
 })
+
 app.get('/grid-view', (req, res) => {
     // res.render('grid-view');
     let sql = 'SELECT* FROM products limit 9';
@@ -112,8 +122,14 @@ app.get('/order - recieved', (req, res) => {
 
 
 app.get('/admin', (req, res) => {
-    res.render('./views/admin/views/index');
+     let sql = 'SELECT* FROM products';
+    db.query(sql, function(err, data) {
+        // if (err) throw err;?
+        res.render('admin', { products: data });
+    })
 })
+
+
 app.get('/book-detail', (req, res) => {
     // res.render('book-detail');
     let sql = 'SELECT* FROM products';

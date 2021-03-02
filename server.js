@@ -20,15 +20,18 @@ const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
     password: '',
-    database: 'bookstore',
+    database: 'bookstore2',
     multipleStatements: true,
     port: '3306'
 });
 app.use(bodyParser.urlencoded({ extended: true }));
 //khai bao su dung template ejs
-app.set("view engine", "ejs");
 app.set("views", "./views");
 app.use(express.static("public"));
+//app.use('/public', express.static('public'))
+//app.use(express.static(path.join(__dirname, 'public')));
+
+app.set("view engine", "ejs");
 app.use(expressLayouts);
 const routeSite = require('./route/site');
 // //const routeAdmin = require('/route/admin');
@@ -62,14 +65,7 @@ app.get('/blog', (req, res) => {
 app.get('/news', (req, res) => {
     res.render('news');
 })
-app.get('/book-detail', (req, res) => {
-    // res.render('book-detail');
-    let sql = 'SELECT* FROM products';
-    db.query(sql, function(err, data) {
-        // if (err) throw err;?
-        res.render('book-detail', { products: data });
-    })
-})
+
 app.get('/cart', (req, res) => {
     res.render('cart');
 })
@@ -104,6 +100,63 @@ app.get('/shortcodes', (req, res) => {
 app.get('/order - recieved', (req, res) => {
     res.render('order - recieved');
 })
+app.get('/book-detail', (req, res) => {
+    // res.render('book-detail');
+    let sql = 'SELECT* FROM products';
+    db.query(sql, function(err, data) {
+        // if (err) throw err;?
+        res.render('book-detail', { products: data });
+    })
+});
+// app.get('/shop/:id', (req, res) => {
+//     // let sql = 'SELECT* FROM products';
+// var data =[
+//     {
+//         id: 1,
+//         productName: 'Freefall'
+//     },
+//     {
+//         id: 2,
+//         productName: 'Darknet'
+//     }
+
+// ]
+// var result;
+// data.forEach((product) => {
+//     if(product.id === req.params.id){
+//         result = product;
+//         return true;
+//     }
+// })
+// res.render('book-detail',{ 
+//     title: 'Product Details',
+//     product : result
+// });
+// });
+app.get('/shop/:id', (req, res)=>{
+    let sql = 'SELECT* FROM products';
+
+db.connect(function(err) {
+   // if (err) throw err;
+    db.query(sql, function (err, result, fields) {
+    //  if (err) throw err;
+    result.forEach((product) => {
+            if(product.idProducts == req.params.id){
+                result = product;
+                return true;
+            }
+        })
+        res.render('book-detail',{ 
+                title: 'Product Details',
+                product : result
+            });
+    });
+  });
+
+    });
+
+
+
 app.listen(port, () => {
     console.log(`Hello!!! Server đang chạy port: ${port} ngon lành :)`);
 });

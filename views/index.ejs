@@ -16,106 +16,37 @@
                     <section class="book-box">
                         <div class="book-outer">
                             <div id="mybook">
+                                <% for (let product of products) { %>
                                 <div title="first page">
                                     <div class="left-page">
-                                        <div class="frame"><img src="/images/image01.jpg" alt="img"></div>
+                                        <div class="frame"> <img src="images/<%= product.images %>" alt="img"> </div>
                                         <div class="bottom">
                                             <div class="cart-price"> <span class="cart">&nbsp;</span> <strong class="price">$149.50</strong> </div>
                                         </div>
                                     </div>
                                 </div>
+                              
                                 <div title="second page">
                                     <div class="right-page">
                                         <div class="text">
-                                            <h1>Parenting - For Early Years</h1>
-                                            <strong class="name">by Bonnier</strong>
+                                            <a href="/shop/<%= product.idProducts %>">  <h1><%= product.nameProducts %></h1></a>
+                                            <strong class="name">by <%= product.author %></strong>
                                             <div class="rating-box"><img src="images/rating-img.png" alt="img"></div>
                                             <a href="#" class="btn-shop">SHOP NOW</a> </div>
                                         <div class="bottom">
                                             <div class="text">
                                                 <div class="inner">
-                                                    <p>Curabitur lreaoreet nisl lorem in pellente e vidicus pannel impirus sadintas velisurabitur lreaoreet nisl lorem in pellente vidicus pannel.</p>
+                                                    <p><%= product.description %></p>
                                                     <a href="#" class="readmore">Read More</a> </div>
                                                 <div class="batch-icon"><img src="images/batch-img.png" alt="img"></div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div title="third page">
-                                    <div class="left-page">
-                                        <div class="frame"><img src="images/image01.jpg" alt="img"></div>
-                                        <div class="bottom">
-                                            <div class="cart-price"> <span class="cart">&nbsp;</span> <strong class="price">$149.50</strong> </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div title="fourth page">
-                                    <div class="right-page">
-                                        <div class="text">
-                                            <h1>Parenting - For Early</h1>
-                                            <strong class="name">by Bonnier</strong>
-                                            <div class="rating-box"><img src="images/rating-img.png" alt="img"></div>
-                                            <a href="#" class="btn-shop">SHOP NOW</a> </div>
-                                        <div class="bottom">
-                                            <div class="text">
-                                                <div class="inner">
-                                                    <p>Curabitur lreaoreet nisl lorem in pellente e vidicus pannel impirus sadintas velisurabitur lreaoreet nisl lorem in pellente vidicus pannel.</p>
-                                                    <a href="#" class="readmore">Read More</a> </div>
-                                                <div class="batch-icon"><img src="images/batch-img.png" alt="img"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div title="fifth page">
-                                    <div class="left-page">
-                                        <div class="frame"><img src="images/image01.jpg" alt="img"></div>
-                                        <div class="bottom">
-                                            <div class="cart-price"> <span class="cart">&nbsp;</span> <strong class="price">$149.50</strong> </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div title="sixth page">
-                                    <div class="right-page">
-                                        <div class="text">
-                                            <h1>For Early Years</h1>
-                                            <strong class="name">by Bonnier</strong>
-                                            <div class="rating-box"><img src="images/rating-img.png" alt="img"></div>
-                                            <a href="#" class="btn-shop">SHOP NOW</a> </div>
-                                        <div class="bottom">
-                                            <div class="text">
-                                                <div class="inner">
-                                                    <p>Curabitur lreaoreet nisl lorem in pellente e vidicus pannel impirus sadintas velisurabitur lreaoreet nisl lorem in pellente vidicus pannel.</p>
-                                                    <a href="#" class="readmore">Read More</a> </div>
-                                                <div class="batch-icon"><img src="images/batch-img.png" alt="img"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div title="seventh page">
-                                    <div class="left-page">
-                                        <div class="frame"><img src="images/image01.jpg" alt="img"></div>
-                                        <div class="bottom">
-                                            <div class="cart-price"> <span class="cart">&nbsp;</span> <strong class="price">$149.50</strong> </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div title="eighth page">
-                                    <div class="right-page">
-                                        <div class="text">
-                                            <h1>Parenting </h1>
-                                            <strong class="name">by Bonnier</strong>
-                                            <div class="rating-box"><img src="images/rating-img.png" alt="img"></div>
-                                            <a href="#" class="btn-shop">SHOP NOW</a> </div>
-                                        <div class="bottom">
-                                            <div class="text">
-                                                <div class="inner">
-                                                    <p>Curabitur lreaoreet nisl lorem in pellente e vidicus pannel impirus sadintas velisurabitur lreaoreet nisl lorem in pellente vidicus pannel.</p>
-                                                    <a href="#" class="readmore">Read More</a> </div>
-                                                <div class="batch-icon"><img src="images/batch-img.png" alt="img"></div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                <% } %>
+
+                                
+
                             </div>
                         </div>
                     </section>
@@ -168,7 +99,7 @@
                         <div class="slider1">
                             <% for (let product of products) { %>
                                 <div class="slide">
-                                    <a href="/book-detail"><img src="images/<%= product.images %>" alt="" class="pro-img" /></a> <span class="title"><a href="/book-detail"><%= product.nameProducts %></a></span> <span class="rating-bar"><img src="images/rating-star.png" alt="Rating Star"/></span>
+                                    <a href="/shop/<%= product.idProducts %>"><img src="images/<%= product.images %>" alt="" class="pro-img" /></a> <span class="title"><a href="/book-detail"><%= product.nameProducts %></a></span> <span class="rating-bar"><img src="images/rating-star.png" alt="Rating Star"/></span>
                                     <div class="cart-price"> <a class="cart-btn2" href="/cart">Add to Cart</a> <span class="price"><%= product.price %></span><span><%= product.cost %></span> </div>
                                 </div>
                                 <% } %>

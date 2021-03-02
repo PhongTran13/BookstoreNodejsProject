@@ -85,7 +85,7 @@
                         <section class="grid-holder features-books">
                             <% for (let product of products) { %>
                                 <figure class="span4 slide">
-                                    <a href="/book-detail"><img src="images/<%= product.images %>" alt="" class="pro-img" /></a>
+                                    <a href="/shop/<%= product.idProducts %>"><img src="images/<%= product.images %>" alt="" class="pro-img" /></a>
                                     <span class="title"><a href="/book-detail"><%= product.nameProduct %></a></span>
                                     <span class="rating-bar"><img src="images/rating-star.png" alt="Rating Star"/></span>
                                     <div class="cart-price">

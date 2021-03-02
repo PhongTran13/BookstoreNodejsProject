@@ -1526,7 +1526,7 @@ a img:hover {
     color: #000;
 }
 
-.comm-nav ul li input[type="text"] {
+.comm-nav ul li input[type="number"] {
     width: 60px;
 }
 
@@ -1998,6 +1998,12 @@ a img:hover {
 .gia::before {
     content: '$';
     font-weight: bold;
+}
+
+.cart-table-holder button {
+    border: none;
+    background: none;
+    color: red;
 }
 
 .cart-option-box {

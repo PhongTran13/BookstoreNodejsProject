@@ -103,7 +103,24 @@ app.get('/shortcodes', (req, res) => {
 })
 app.get('/order - recieved', (req, res) => {
     res.render('order - recieved');
+});
+//chi tiết
+// app.get('/book-detail/:idProducts', (req, res) => {
+//     var thutu = req.params.idProducts;
+//     const query = `SELECT * FROM products WHERE idProducts = ${Number(thutu) + 1}`
+//     var sp = db.query(query, (err, result) => {
+//         if (err) res.redirect("/shop");
+//         res.render('book-detail', { sp: result[0] });
+//     })
+// });
+
+
+app.get('/admin', (req, res) => {
+    res.render('./views/admin/views/index');
 })
+
+
+
 app.listen(port, () => {
     console.log(`Hello!!! Server đang chạy port: ${port} ngon lành :)`);
 });

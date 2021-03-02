@@ -21,27 +21,30 @@
                         <table width="100%" border="0" cellpadding="10">
                             <tr>
                                 <th width="20%">&nbsp;</th>
-                                <th width="43%" align="left">Product Name</th>
-                                <th width="10%">Unit Price</th>
+                                <th width="33%" align="left">Product Name</th>
+                                <th width="15%">Unit Price</th>
+                                <th width="15%">Unit Cost</th>
                                 <th width="10%">Quantity</th>
                                 <th width="12%">Subtota</th>
                                 <th width="5%">&nbsp;</th>
                             </tr>
                             <tr bgcolor="#FFFFFF" class="product-detail">
                                 <td valign="top"><img src="images/s2.jpg" /></td>
-                                <td valign="top" style="line-height: 170px;">The Kite Runner by Khalid Hosseini</td>
+                                <td valign="top" style="line-height: 170px;"><strong>Darknet</strong></td>
                                 <td align="center" valign="top" class="product-price" style="line-height: 170px;">18.23</td>
+                                <td align="center" valign="top" class="product-price" style="line-height: 170px; text-decoration: line-through;">19.99</td>
                                 <td align="center" valign="top" class="product-quantity" style="line-height: 170px;"><input type="number" value="1" min="1"></td>
                                 <td align="center" valign="top" class="product-line-price" style="line-height: 170px;"><strong>18.23</strong></td>
-                                <td align="center" valign="top" style="line-height: 170px;"><a href="#"><i class="icon-trash"></i></a></td>
+                                <td align="center" valign="top" class="product-removal" style="line-height: 170px;"><button><i class="icon-trash"></i></button></td>
                             </tr>
                             <tr bgcolor="#FFFFFF" class="product-detail">
-                                <td valign="top"><img src="images/s2.jpg" /></td>
-                                <td valign="top" style="line-height: 170px;">The Kite Runner by Khalid Hosseini</td>
+                                <td valign="top"><img src="images/s3.jpg" /></td>
+                                <td valign="top" style="line-height: 170px;"><strong>Holy Ghosts</strong></td>
                                 <td align="center" valign="top" class="product-price" style="line-height: 170px;">18.23</td>
+                                <td align="center" valign="top" class="product-price" style="line-height: 170px; text-decoration: line-through;">19.99</td>
                                 <td align="center" valign="top" class="product-quantity" style="line-height: 170px;"><input type="number" value="1" min="1"></td>
                                 <td align="center" valign="top" class="product-line-price" style="line-height: 170px;"><strong>18.23</strong></td>
-                                <td align="center" valign="top" style="line-height: 170px;"><a href="#"><i class="icon-trash"></i></a></td>
+                                <td align="center" valign="top" class="product-removal" style="line-height: 170px;"><button><i class="icon-trash"></i></button></td>
                             </tr>
                         </table>
                     </div>
@@ -463,9 +466,9 @@
                     updateQuantity(this);
                 });
 
-                // $('.product-removal button').click(function() {
-                //     removeItem(this);
-                // });
+                $('.product-removal button').click(function() {
+                    removeItem(this);
+                });
 
 
                 /* Recalculate cart */
